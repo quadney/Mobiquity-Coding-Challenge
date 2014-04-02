@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cMW-kB-aHo">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller - Photos-->
+        <scene sceneID="W78-Xj-4dd">
+            <objects>
+                <navigationController title="Photos" definesPresentationContext="YES" id="cMW-kB-aHo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kHF-lH-cAe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HYn-B0-Lc4" kind="relationship" relationship="rootViewController" id="whJ-Fi-RKF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hkf-8N-AZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-290" y="31"/>
+        </scene>
+        <!--View Controller - Dropbox-->
+        <scene sceneID="vUm-6g-2Rf">
+            <objects>
+                <viewController id="HYn-B0-Lc4" customClass="MCCViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pvy-Nr-HMW"/>
+                        <viewControllerLayoutGuide type="bottom" id="K60-YT-cuV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4nI-Ik-6Mq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="132" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="y5Z-1H-dJ6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="132" id="8OK-TI-DBJ" customClass="MCCTableViewCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8OK-TI-DBJ" id="67f-mN-4Fm">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glm-El-gwV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <gestureRecognizers/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpn-G1-H29">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageLocationLabel" destination="zpn-G1-H29" id="glJ-9X-L5d"/>
+                                            <outlet property="imageView" destination="glm-El-gwV" id="rIf-Ax-uQV"/>
+                                            <segue destination="hPX-Wl-pKb" kind="push" identifier="displayImageSegue" id="hiM-dI-00M"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HYn-B0-Lc4" id="MTu-ia-5NK"/>
+                                    <outlet property="delegate" destination="HYn-B0-Lc4" id="82S-tR-wWK"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zYn-7f-g1W">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="266" style="plain" systemItem="fixedSpace" id="43v-qs-xc7"/>
+                                    <barButtonItem systemItem="camera" id="aVJ-JB-Kcq">
+                                        <connections>
+                                            <action selector="didPressCameraButton:" destination="HYn-B0-Lc4" id="Qvw-uZ-0tV"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dropbox" id="ECt-8q-G0B">
+                        <barButtonItem key="leftBarButtonItem" image="dropbox_logo.png" id="Phs-ch-Nff">
+                            <connections>
+                                <action selector="linkToDropbox:" destination="HYn-B0-Lc4" id="qub-sd-uVe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="linkDropboxButton" destination="Phs-ch-Nff" id="iaU-0S-3N6"/>
+                        <outlet property="tableView" destination="y5Z-1H-dJ6" id="imk-dS-QDw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQQ-Ld-G3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="31"/>
+        </scene>
+        <!--Display Image View Controller-->
+        <scene sceneID="tFn-mx-XUz">
+            <objects>
+                <viewController id="hPX-Wl-pKb" customClass="MCCDisplayImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8WR-wQ-IeP"/>
+                        <viewControllerLayoutGuide type="bottom" id="ckr-RB-UDF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fef-14-2fC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zBh-CS-rtt">
+                                <rect key="frame" x="0.0" y="105" width="320" height="348"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L5E-zh-Zhj"/>
+                    <connections>
+                        <outlet property="imageView" destination="zBh-CS-rtt" id="HRm-nN-00G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P8S-TC-Z8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dropbox_logo.png" width="27" height="25"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
